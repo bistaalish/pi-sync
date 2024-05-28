@@ -30,9 +30,20 @@ dest2_command=root@${destIP}:${dnsmasqDest}/${File10}
 dest3_command=root@${destIP}:${dnsmasqDest}/${File22}
 
 #sync DNSmasq files
+echo "-------------------------------"
+echo "copying dnsmasq.d files"
+echo "-------------------------------"
+echo Copying ${source1_command}
 rsync -avz $source1_command $dest1_command
+echo "-------------------------------"
+echo Copying ${source2_command}
 rsync -avz $source2_command $dest2_command
+echo "-------------------------------"
+echo Copying ${source2_command}
 rsync -avz $source3_command $dest3_command
+echo "-------------------------------"
+echo "Synced dnsmasq config files"
+echo "-------------------------------"
 
 # rsync -avz `${dnsmasqDest}/${defaultFile}`  `root@${destIP}`
 
