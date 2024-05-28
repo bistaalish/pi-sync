@@ -18,7 +18,7 @@ file_22=22.list
 dnsmasqDest=/etc/dnsmasq.d
 piholeDest=/etc/pihole/
 
-# SYNCING pihole dnsmasq.d files
+# dnsmasq.d files
 #SOURCE COMMANDS
 source1_command=${dnsmasqDest}/${defaultFile}
 source2_command=${dnsmasqDest}/${File10}
@@ -29,13 +29,10 @@ dest1_command=root@${destIP}:${dnsmasqDest}/${defaultFile}
 dest2_command=root@${destIP}:${dnsmasqDest}/${File10}
 dest3_command=root@${destIP}:${dnsmasqDest}/${File22}
 
-
-
+#sync DNSmasq files
 rsync -avz $source1_command $dest1_command
 rsync -avz $source2_command $dest2_command
 rsync -avz $source3_command $dest3_command
-# echo $source1_command
-# echo $dest1_command
 
 # rsync -avz `${dnsmasqDest}/${defaultFile}`  `root@${destIP}`
 
