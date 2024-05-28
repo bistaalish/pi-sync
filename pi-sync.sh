@@ -52,9 +52,9 @@ source2_command=${piholeDest}/${file_10}
 source3_command=${piholeDest}/${file_22}
 
 #DESTINATION COMMANDS
-dest1_command=root@${destIP}:${piholeDest}/${file}
-dest2_command=root@${destIP}:${piholeDest}/${file_10}
-dest3_command=root@${destIP}:${piholeDest}/${file_22}
+dest1_command=root@${destIP}:${piholeDest}${file}
+dest2_command=root@${destIP}:${piholeDest}${file_10}
+dest3_command=root@${destIP}:${piholeDest}${file_22}
 
 #sync pihole record files
 echo "-------------------------------"
