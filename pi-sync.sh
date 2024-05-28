@@ -45,6 +45,33 @@ echo "-------------------------------"
 echo "Synced dnsmasq config files"
 echo "-------------------------------"
 
+# pihole files
+#SOURCE COMMANDS
+source1_command=${piholeDest}/${file}
+source2_command=${piholeDest}/${file_10}
+source3_command=${piholeDest}/${file_22}
+
+#DESTINATION COMMANDS
+dest1_command=root@${destIP}:${piholeDest}/${file}
+dest2_command=root@${destIP}:${piholeDest}/${file_10}
+dest3_command=root@${destIP}:${piholeDest}/${file_22}
+
+#sync pihole record files
+echo "-------------------------------"
+echo "copying dns record files"
+echo "-------------------------------"
+echo Copying ${source1_command}
+rsync -avz $source1_command $dest1_command
+echo "-------------------------------"
+echo Copying ${source2_command}
+rsync -avz $source2_command $dest2_command
+echo "-------------------------------"
+echo Copying ${source2_command}
+rsync -avz $source3_command $dest3_command
+echo "-------------------------------"
+echo "Synced pihole dns records files"
+echo "-------------------------------"
+
 # rsync -avz `${dnsmasqDest}/${defaultFile}`  `root@${destIP}`
 
 
