@@ -72,8 +72,10 @@ echo "-------------------------------"
 echo "Synced pihole dns records files"
 echo "-------------------------------"
 
-# rsync -avz `${dnsmasqDest}/${defaultFile}`  `root@${destIP}`
+ssh_command="sudo systemctl restart pihole-FTL"
+ssh_key="/root/.ssh/id_ed25519.pub"
 
+ssh -i "$ssh_key" -p "$destination_port" "root@$destIP" "$ssh_command"
 
 # rsync -avz "/mnt/pve/HDD/template/cache/"  "root@192.168.10.4:/mnt/pve/HDD/template/cache/"
 # rsync -avz "root@192.168.10.4:/mnt/pve/HDD/template/cache/" "/mnt/pve/HDD/template/cache"
